@@ -35,7 +35,7 @@ namespace ConsoleAppUI
         }
         static void GetList(List<Car> cars)
         {
-            Console.WriteLine("\n*************LIST************\n");
+            Console.WriteLine("\n************************************LIST************************************\n");
             Console.WriteLine("CarId \t DailyPrice \t Model Year \t Description");
             Console.WriteLine("----- \t -----------  \t ------------  \t --------------- \t ");
             foreach (var car in cars)
@@ -45,7 +45,7 @@ namespace ConsoleAppUI
         }
         static void GetItem(Car car)
         {
-            Console.WriteLine("\n*************LIST************\n");
+            Console.WriteLine("\n*****************************************************************\n");
             Console.WriteLine("CarId \t DailyPrice \t Model Year \t Description");
             Console.WriteLine("----- \t -----------  \t ------------  \t --------------- \t ");
             Console.WriteLine("{0} \t {1} \t\t {2} \t {3}", car.CarId, car.DailyPrice, car.ModelYear.ToShortDateString(), car.Description);
