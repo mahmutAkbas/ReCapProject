@@ -14,10 +14,10 @@ namespace DataAccess.Concrete.InMemory
         public InMemoryCarDal()
         {
             this.cars = new List<Car> {
-            new Car{CarId=1,ColorId=1,BrandId=1,ModelYear=new DateTime(1992,10,10),DailyPrice=50,Description="Şahin Modeifiyeli"},
-                new Car{CarId=2,ColorId=2,BrandId=2,ModelYear=new DateTime(2010,10,10),DailyPrice=75,Description="Ford Focus"},
-                            new Car{CarId=3,ColorId=3,BrandId=5,ModelYear=new DateTime(2021,01,01),DailyPrice=250,Description="Volvo XC40"},
-                new Car{CarId=4,ColorId=5,BrandId=3,ModelYear=new DateTime(2016,10,10),DailyPrice=200,Description="Volkwagen Passat"}
+            new Car{CarId=1,ColorId=1,BrandId=1,ModelYear=1992,DailyPrice=50,Description="Şahin Modeifiyeli"},
+                new Car{CarId=2,ColorId=2,BrandId=2,ModelYear=2010,DailyPrice=75,Description="Ford Focus"},
+                            new Car{CarId=3,ColorId=3,BrandId=5,ModelYear=2021,DailyPrice=250,Description="Volvo XC40"},
+                new Car{CarId=4,ColorId=5,BrandId=3,ModelYear=2016,DailyPrice=200,Description="Volkwagen Passat"}
             };
         }
 
