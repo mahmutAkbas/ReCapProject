@@ -11,12 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Busine
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppUI", "ConsoleAppUI\ConsoleAppUI.csproj", "{A19C13B8-05ED-4D74-B408-C6FD0110D3EF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Image", "Image", "{7F840429-7C29-4E58-B41C-0FF5A9DFA896}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Desktop\06-02-2021.PNG = ..\..\..\Desktop\06-02-2021.PNG
-		..\..\..\Desktop\324324324.PNG = ..\..\..\Desktop\324324324.PNG
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
