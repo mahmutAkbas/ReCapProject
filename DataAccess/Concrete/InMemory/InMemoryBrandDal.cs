@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace DataAccess.Concrete.InMemory
 {
@@ -38,9 +39,19 @@ namespace DataAccess.Concrete.InMemory
             return brands;
         }
 
+        public List<Brand> GetAll(Expression<Func<Brand, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public Brand GetById(int brandId)
         {
           return  brands.SingleOrDefault(b => b.BrandId == brandId);
+        }
+
+        public Brand GetById(Expression<Func<Brand, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Brand brand)

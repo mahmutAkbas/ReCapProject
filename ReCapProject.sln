@@ -3,16 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{B72F5E5B-E55E-4E1A-8DFE-AE7F05F96199}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{B72F5E5B-E55E-4E1A-8DFE-AE7F05F96199}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{31FEEBB1-6AB8-4CC9-AAB8-D459D365682D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{31FEEBB1-6AB8-4CC9-AAB8-D459D365682D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{3CD41D42-9399-4884-8C50-CB290A834332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{3CD41D42-9399-4884-8C50-CB290A834332}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppUI", "ConsoleAppUI\ConsoleAppUI.csproj", "{A19C13B8-05ED-4D74-B408-C6FD0110D3EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppUI", "ConsoleAppUI\ConsoleAppUI.csproj", "{A19C13B8-05ED-4D74-B408-C6FD0110D3EF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Image", "Image", "{7F840429-7C29-4E58-B41C-0FF5A9DFA896}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\06-02-2021.PNG = ..\..\..\Desktop\06-02-2021.PNG
 		..\..\..\Desktop\324324324.PNG = ..\..\..\Desktop\324324324.PNG
 	EndProjectSection
 EndProject

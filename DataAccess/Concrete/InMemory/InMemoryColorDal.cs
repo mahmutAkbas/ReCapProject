@@ -3,52 +3,63 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.InMemory
 {
     public class InMemoryColorDal : IColorDal
     {
-        List<CarColor> carColors;
+        List<Color> Colors;
 
         public InMemoryColorDal()
         {
-            this.carColors = new List<CarColor> { 
-                new CarColor{ColorId=1,ColorName="White"},
-                new CarColor{ColorId=2,ColorName="Red"},
-                new CarColor{ColorId=3,ColorName="Green"},
-                new CarColor{ColorId=4,ColorName="Yellow"},
-                new CarColor{ColorId=5,ColorName="Gray"},
-                new CarColor{ColorId=6,ColorName="Black"},
-                new CarColor{ColorId=7,ColorName="Blue"},
+            this.Colors = new List<Color> { 
+                new Color{ColorId=1,ColorName="White"},
+                new Color{ColorId=2,ColorName="Red"},
+                new Color{ColorId=3,ColorName="Green"},
+                new Color{ColorId=4,ColorName="Yellow"},
+                new Color{ColorId=5,ColorName="Gray"},
+                new Color{ColorId=6,ColorName="Black"},
+                new Color{ColorId=7,ColorName="Blue"},
             };
         }
 
-        public void Add(CarColor carColor)
+        public void Add(Color Color)
         {
-            carColors.Add(carColor);
+            Colors.Add(Color);
         }
 
-        public void Delete(CarColor carColor)
+        public void Delete(Color Color)
         {
-            var result = carColors.SingleOrDefault(cc => cc.ColorId == carColor.ColorId);
-            carColors.Remove(result);
+            var result = Colors.SingleOrDefault(cc => cc.ColorId == Color.ColorId);
+            Colors.Remove(result);
         }
 
-        public List<CarColor> GetAll()
+        public List<Color> GetAll()
         {
-            return carColors;
+            return Colors;
         }
 
-        public CarColor GetById(int carColor)
+        public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
         {
-            return carColors.SingleOrDefault(cc => cc.ColorId == carColor);
+            throw new NotImplementedException();
         }
 
-        public void Update(CarColor carColor)
+        public Color GetById(int Color)
         {
-            var result = carColors.SingleOrDefault(cc => cc.ColorId == carColor.ColorId);
-            result.ColorName = carColor.ColorName;
+            return Colors.SingleOrDefault(cc => cc.ColorId == Color);
+        }
+
+        public Color GetById(Expression<Func<Color, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Color Color)
+        {
+            var result = Colors.SingleOrDefault(cc => cc.ColorId == Color.ColorId);
+            result.ColorName = Color.ColorName;
         }
     }
 }
