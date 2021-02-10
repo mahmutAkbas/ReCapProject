@@ -40,7 +40,7 @@ namespace Business.Concrete
 
         public Color GetById(int ColorId)
         {
-            return _ColorDal.GetById(cc => cc.ColorId == ColorId);
+            return _ColorDal.Get(cc => cc.ColorId == ColorId);
         }
 
         public void Update(Color item)

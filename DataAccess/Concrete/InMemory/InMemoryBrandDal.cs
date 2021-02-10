@@ -34,6 +34,11 @@ namespace DataAccess.Concrete.InMemory
             brands.Remove(result);
         }
 
+        public Brand Get(Expression<Func<Brand, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Brand> GetAll()
         {
             return brands;

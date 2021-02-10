@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,20 +11,11 @@ namespace Business.Concrete
     public class CarManager : IBaseService<Car>, ICarService
     {
         ICarDal _carDal;
-        IColorDal _ColorDal;
-        IBrandDal _brandDal;
 
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
         }
-        public CarManager(ICarDal carDal, IColorDal ColorDal, IBrandDal brandDal)
-        {
-            _carDal = carDal;
-            _ColorDal = ColorDal;
-            _brandDal = brandDal;
-        }
-
         public void Add(Car item)
         {
             if (item.CarDescription.Length >= 2)
@@ -49,12 +41,9 @@ namespace Business.Concrete
             _carDal.Delete(item);
         }
 
-        public List<CarJoin> GetAll()
+        public List<Car> GetAll()
         {
-            return (from c in _carDal.GetAll()
-                    join cc in _ColorDal.GetAll() on c.ColorId equals cc.ColorId
-                    join b in _brandDal.GetAll() on c.BrandId equals b.BrandId
-                    select new CarJoin { CarId = c.CarId, ColorName = cc.ColorName, BrandName = b.BrandName, ModelYear = c.ModelYear, DailyPrice = c.DailyPrice, CarDescription = c.CarDescription }).ToList();
+            throw new NotImplementedException();
         }
 
         public List<Car> GetByBrandId(int brandId)
@@ -62,18 +51,19 @@ namespace Business.Concrete
             return _carDal.GetAll().Where(cc => cc.BrandId == brandId).ToList();
         }
 
-        public CarJoin GetByCarId(int carId)
-        {
-            return (from c in _carDal.GetAll()
-                    join cc in _ColorDal.GetAll() on c.ColorId equals cc.ColorId
-                    join b in _brandDal.GetAll() on c.BrandId equals b.BrandId
-                    where c.CarId==carId
-                    select new CarJoin { CarId = c.CarId, ColorName = cc.ColorName, BrandName = b.BrandName, ModelYear = c.ModelYear, DailyPrice = c.DailyPrice, CarDescription = c.CarDescription }).First();
-        }
-
         public List<Car> GetByColorId(int colorId)
         {
             return _carDal.GetAll(cc => colorId == cc.ColorId);
+        }
+
+        public CarDetailDto GetCarDetailByCarId(int carId)
+        {
+            return _carDal.GetCarDetailsByCarId(carId);
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
         }
 
         public void Update(Car item)

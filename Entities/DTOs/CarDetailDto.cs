@@ -1,11 +1,8 @@
-﻿using Entities.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Core.Entities;
 
-namespace Entities.Concrete
+namespace Entities.DTOs
 {
-   public class CarJoin :IEntity
+    public class CarDetailDto : IDto
     {
         public int CarId { get; set; }
         public string ColorName { get; set; }

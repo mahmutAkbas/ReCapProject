@@ -1,13 +1,15 @@
 ﻿using Entities.Concrete;
+using Entities.DTOs;
 using System.Collections.Generic;
 
 namespace Business.Abstract
 {
     public interface ICarService
     {
-        List<CarJoin> GetAll();
+        List<Car> GetAll();
         List<Car> GetByColorId(int colorId);
         List<Car> GetByBrandId(int brandId);
-        CarJoin GetByCarId(int carId);
+        List<CarDetailDto> GetCarDetails();
+        CarDetailDto GetCarDetailByCarId(int carId);
     }
 }

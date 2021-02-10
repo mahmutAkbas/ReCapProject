@@ -1,6 +1,7 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework.Repository;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 
@@ -10,7 +11,7 @@ namespace ConsoleAppUI
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new EfCarDal(), new EfColorDal(), new EfBrandDal());
+            CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager ColorManager = new ColorManager(new EfColorDal());
 
@@ -48,10 +49,10 @@ namespace ConsoleAppUI
             Console.WriteLine("{0} \t\t {1}", resultBrand.BrandId, resultBrand.BrandName);
             Console.WriteLine("\n\n");
 
-            GetList(carManager.GetAll());
-            GetItem(carManager.GetByCarId(1));
+            GetList(carManager.GetCarDetails());
+            GetItem(carManager.GetCarDetailByCarId(1));
         }
-        static void GetList(List<CarJoin> cars)
+        static void GetList(List<CarDetailDto> cars)
         {
             Console.WriteLine("\n************************************LIST************************************\n");
             Console.WriteLine("CarId \t Color Name \t Brand Name \t DailyPrice \t Model Year \t Description");
@@ -67,7 +68,7 @@ namespace ConsoleAppUI
               
             }
         }
-        static void GetItem(CarJoin car)
+        static void GetItem(CarDetailDto car)
         {
             Console.WriteLine("\n*****************************************************************\n");
             Console.WriteLine("CarId \t Color Name \t Brand Name \t DailyPrice \t Model Year \t Description");
