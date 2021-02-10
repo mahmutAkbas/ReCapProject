@@ -1,5 +1,9 @@
 # ReCapProject
 
+## Date : 10.02.2021 Tested For Entityframework 
+- Core layer added
+- +GetCarDetailList(Inner join)
+- +GetCarDetail(int carId)
 
 ## Date : 06.02.2021 Tested For Entityframework 
 - (Add,Update,Delete) for Brand,Color and Car
