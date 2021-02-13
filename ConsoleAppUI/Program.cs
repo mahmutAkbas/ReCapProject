@@ -15,7 +15,7 @@ namespace ConsoleAppUI
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager ColorManager = new ColorManager(new EfColorDal());
 
-            ColorManager.Add(new Color { ColorName = "White" });
+           /* ColorManager.Add(new Color { ColorName = "White" });
             ColorManager.Add(new Color { ColorName = "Red" });
             ColorManager.Add(new Color { ColorName = "Green" });
             ColorManager.Add(new Color { ColorName = "Yellow" });
@@ -36,21 +36,21 @@ namespace ConsoleAppUI
             carManager.Add(new Car { ColorId = 4, BrandId = 3, ModelYear = 2018, DailyPrice = 180, CarDescription = "Volkswagen Jetta Full" });
 
             carManager.Add(new Car { ColorId = 4, BrandId = 3, ModelYear = 2018, DailyPrice = 0, CarDescription = "Volkswagen Jetta Full" });
-            carManager.Add(new Car { ColorId = 4, BrandId = 3, ModelYear = 2018, DailyPrice = 100, CarDescription = "l" });
+            carManager.Add(new Car { ColorId = 4, BrandId = 3, ModelYear = 2018, DailyPrice = 100, CarDescription = "l" });*/
             Console.WriteLine("\n\n");
             Console.WriteLine("--------------------Color Id : 1 Item list--------------------");
-            var resultColor = ColorManager.GetById(1);
+            var resultColor = ColorManager.GetById(1).Data;
             Console.WriteLine("ColorId \t ColorName ");
             Console.WriteLine("{0} \t\t {1}", resultColor.ColorId, resultColor.ColorName);
 
             Console.WriteLine("--------------------Brand Id : 2 Item list--------------------");
-            var resultBrand = brandManager.GetById(2);
+            var resultBrand = brandManager.GetById(2).Data;
             Console.WriteLine("BrandId \t BrandName ");
             Console.WriteLine("{0} \t\t {1}", resultBrand.BrandId, resultBrand.BrandName);
             Console.WriteLine("\n\n");
 
-            GetList(carManager.GetCarDetails());
-            GetItem(carManager.GetCarDetailByCarId(1));
+            GetList(carManager.GetCarDetails().Data);
+            GetItem(carManager.GetCarDetailByCarId(1).Data);
         }
         static void GetList(List<CarDetailDto> cars)
         {

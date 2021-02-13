@@ -1,13 +1,12 @@
-﻿using Entities.Concrete;
-using System;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Business.Abstract
 {
-   public interface IColorService:IBaseService<Color>
+    public interface IColorService : IBaseService<Color>
     {
-        List<Color> GetAll();
-        Color GetById(int ColorId);
+        IDataResult<List<Color>> GetAll();
+        IDataResult<Color> GetById(int ColorId);
     }
 }

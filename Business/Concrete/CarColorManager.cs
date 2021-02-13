@@ -1,7 +1,8 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
 using System.Collections.Generic;
 
 namespace Business.Concrete
@@ -15,43 +16,45 @@ namespace Business.Concrete
             _ColorDal = ColorDal;
         }
 
-        public void Add(Color item)
+        public IResult Add(Color item)
         {
             if (item.ColorName.Length >= 2)
             {
                 _ColorDal.Add(item);
+                return new SuccessResult(Messages.Added);
             }
             else
             {
-                Console.WriteLine("[Color] must be min length 2");
+                return new ErrorResult(Messages.ErrorColor);
             }
         }
 
-        public void Delete(Color item)
+        public IResult Delete(Color item)
         {
             _ColorDal.Delete(item);
+            return new SuccessResult(Messages.Deleted);
         }
 
-        public List<Color> GetAll()
+        public IDataResult<List<Color>> GetAll()
         {
-
-            return _ColorDal.GetAll();
+            return new SuccessDataResult<List<Color>>(_ColorDal.GetAll());
         }
 
-        public Color GetById(int ColorId)
+        public IDataResult<Color> GetById(int ColorId)
         {
-            return _ColorDal.Get(cc => cc.ColorId == ColorId);
+            return new SuccessDataResult<Color>(_ColorDal.Get(cc => cc.ColorId == ColorId));
         }
 
-        public void Update(Color item)
+        public IResult Update(Color item)
         {
             if (item.ColorName.Length >= 2)
             {
                 _ColorDal.Update(item);
+                return new SuccessResult(Messages.Updated);
             }
             else
             {
-                Console.WriteLine("[Color] must be min length 2");
+                return new ErrorResult(Messages.ErrorColor);
             }
         }
     }
