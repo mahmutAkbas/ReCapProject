@@ -43,12 +43,10 @@ namespace Business.Concrete
             _carDal.Delete(item);
             return new SuccessResult(Messages.Deleted);
         }
-
         public IDataResult<List<Car>> GetByBrandId(int brandId)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll().Where(cc => cc.BrandId == brandId).ToList());
         }
-
         public IDataResult<List<Car>> GetByColorId(int colorId)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(cc => colorId == cc.ColorId));
@@ -77,13 +75,11 @@ namespace Business.Concrete
                 {
                     return new ErrorResult(Messages.ErorrDailyPrice);
                 }
-
             }
             else
             {
                 return new ErrorResult(Messages.ErrorDescription);
             }
-
         }
     }
 }

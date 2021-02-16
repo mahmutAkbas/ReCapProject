@@ -9,18 +9,18 @@ namespace Business.Concrete
 {
     public class ColorManager : IColorService
     {
-        IColorDal _ColorDal;
+        private IColorDal _colorDal;
 
-        public ColorManager(IColorDal ColorDal)
+        public ColorManager(IColorDal colorDal)
         {
-            _ColorDal = ColorDal;
+            _colorDal = colorDal;
         }
 
         public IResult Add(Color item)
         {
             if (item.ColorName.Length >= 2)
             {
-                _ColorDal.Add(item);
+                _colorDal.Add(item);
                 return new SuccessResult(Messages.Added);
             }
             else
@@ -31,25 +31,25 @@ namespace Business.Concrete
 
         public IResult Delete(Color item)
         {
-            _ColorDal.Delete(item);
+            _colorDal.Delete(item);
             return new SuccessResult(Messages.Deleted);
         }
 
         public IDataResult<List<Color>> GetAll()
         {
-            return new SuccessDataResult<List<Color>>(_ColorDal.GetAll());
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
         }
 
-        public IDataResult<Color> GetById(int ColorId)
+        public IDataResult<Color> GetById(int colorId)
         {
-            return new SuccessDataResult<Color>(_ColorDal.Get(cc => cc.ColorId == ColorId));
+            return new SuccessDataResult<Color>(_colorDal.Get(cc => cc.ColorId == colorId));
         }
 
         public IResult Update(Color item)
         {
             if (item.ColorName.Length >= 2)
             {
-                _ColorDal.Update(item);
+                _colorDal.Update(item);
                 return new SuccessResult(Messages.Updated);
             }
             else
