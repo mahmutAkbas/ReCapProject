@@ -1,4 +1,7 @@
 # ReCapProject
+## Date : 13.02.2021 Tested For Entityframework 
+- Results structure Add  for Core layer 
+- Bussines layer updated with Result structure
 
 ## Date : 10.02.2021 Tested For Entityframework 
 - Core layer added
