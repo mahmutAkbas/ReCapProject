@@ -13,6 +13,6 @@
         {
 
         }
-        public SuccessDataResult(bool success) : base(default, true) { }
+        public SuccessDataResult() : base(default, true) { }
     }
 }

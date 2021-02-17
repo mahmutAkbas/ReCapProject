@@ -8,5 +8,6 @@ namespace Business.Abstract
         IResult Add(T item);
         IResult Delete(T item);
         IResult Update(T item);
+
     }
 }

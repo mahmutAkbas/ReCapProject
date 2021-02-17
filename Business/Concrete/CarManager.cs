@@ -43,10 +43,34 @@ namespace Business.Concrete
             _carDal.Delete(item);
             return new SuccessResult(Messages.Deleted);
         }
+
+
+
         public IDataResult<List<Car>> GetByBrandId(int brandId)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll().Where(cc => cc.BrandId == brandId).ToList());
         }
+
+        public IDataResult<List<CarDetailDto>> GetAll()
+        {
+            var result = _carDal.GetCarDetails();
+            if (result.Count == 0)
+            {
+                return new ErrorDataResult<List<CarDetailDto>>();
+            }
+            return new SuccessDataResult<List<CarDetailDto>>(result);
+        }
+
+        public IDataResult<CarDetailDto> Get(int carId)
+        {
+            var result = _carDal.GetCarDetailsByCarId(carId);
+            if (result == null)
+            {
+                return new ErrorDataResult<CarDetailDto>();
+            }
+            return new SuccessDataResult<CarDetailDto>(result);
+        }
+
         public IDataResult<List<Car>> GetByColorId(int colorId)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(cc => colorId == cc.ColorId));
@@ -55,11 +79,6 @@ namespace Business.Concrete
         public IDataResult<CarDetailDto> GetCarDetailByCarId(int carId)
         {
             return new SuccessDataResult<CarDetailDto>(_carDal.GetCarDetailsByCarId(carId));
-        }
-
-        public IDataResult<List<CarDetailDto>> GetCarDetails()
-        {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
 
         public IResult Update(Car item)
@@ -81,5 +100,7 @@ namespace Business.Concrete
                 return new ErrorResult(Messages.ErrorDescription);
             }
         }
+
+        
     }
 }

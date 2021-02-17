@@ -3,6 +3,8 @@ using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
+using System.Collections.Generic;
 
 namespace Business.Concrete
 {
@@ -31,6 +33,26 @@ namespace Business.Concrete
         {
             _customerDal.Update(item);
             return new SuccessResult(Messages.Updated);
+        }
+
+        public IDataResult<List<CustomerDetailDto>> GetAll()
+        {
+            var result = _customerDal.GetCustomersDetail();
+            if (result.Count == 0)
+            {
+                return new ErrorDataResult<List<CustomerDetailDto>>();
+            }
+            return new SuccessDataResult<List<CustomerDetailDto>>(result);
+        }
+
+        public IDataResult<CustomerDetailDto> Get(int customerId)
+        {
+            var result = _customerDal.GetCustomerDetail(customerId);
+            if (result == null)
+            {
+                return new ErrorDataResult<CustomerDetailDto>();
+            }
+            return new SuccessDataResult<CustomerDetailDto>(result);
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework.Repository;
+using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
-using Entities.Concrete;
 
 namespace ConsoleAppUI
 {
@@ -14,8 +14,8 @@ namespace ConsoleAppUI
             CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
-          //  UserTest();
-           // CustomerTest();
+            //  UserTest();
+            // CustomerTest();
 
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             var rent = new Rental
@@ -24,12 +24,12 @@ namespace ConsoleAppUI
                 RentDate = DateTime.Now,
                 RentalCustomerId = 1,
             };
-         var result=   rentalManager.Add(rent);
-         Console.WriteLine(result.Message);
-         rent.ReturnDate = DateTime.Now;
-         rent.RentalId = 3;
-        var resultUpdate= rentalManager.Update(rent);
-         Console.WriteLine(resultUpdate.Message);
+            var result = rentalManager.Add(rent);
+            Console.WriteLine(result.Message);
+            rent.ReturnDate = DateTime.Now;
+            rent.RentalId = 3;
+            var resultUpdate = rentalManager.Update(rent);
+            Console.WriteLine(resultUpdate.Message);
             /* ColorManager.Add(new Color { ColorName = "White" });
              ColorManager.Add(new Color { ColorName = "Red" });
              ColorManager.Add(new Color { ColorName = "Green" });
@@ -64,7 +64,7 @@ namespace ConsoleAppUI
             Console.WriteLine("{0} \t\t {1}", resultBrand.BrandId, resultBrand.BrandName);
             Console.WriteLine("\n\n");
 
-            GetList(carManager.GetCarDetails().Data);
+            GetList(carManager.GetAll().Data);
             GetItem(carManager.GetCarDetailByCarId(1).Data);
         }
 
@@ -85,7 +85,7 @@ namespace ConsoleAppUI
             {
                 UserFirstName = "Mehmet",
                 UserLastName = "Ozonlu",
-                USerPassword = "123",
+                UserPassword = "123",
                 UserEmail = "mehmetozonlu@gmail.com"
             });
         }

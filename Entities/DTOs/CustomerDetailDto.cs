@@ -1,10 +1,11 @@
 ﻿using Core.Entities;
 
-namespace Entities.Concrete
+namespace Entities.DTOs
 {
-    public class User:IEntity
+    public class CustomerDetailDto : IDto
     {
-        public int UserId { get; set; }
+        public int CustomerId { get; set; }
+        public string CompanyName { get; set; }
         public string UserFirstName { get; set; }
         public string UserLastName { get; set; }
         public string UserEmail { get; set; }
