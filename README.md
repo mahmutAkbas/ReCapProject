@@ -1,4 +1,7 @@
 # ReCapProject
+## Date : 17.02.2021 Tested For WebAPI 
+- WebAPI Added for Cars,Brands,Colors,Reantal,User,and Customer tables    
+
 ## Date : 13.02.2021 Tested For Entityframework 
 - Results structure Add  for Core layer 
 - Bussines layer updated with Result structure
